@@ -119,6 +119,9 @@ body {
     min-height: 100vh;
     padding: 120px 50px 50px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-container {
@@ -214,8 +217,10 @@ body {
 
 /* Tools Section */
 .tools-section {
-    max-width: 1200px;
+    max-width: 700px;
     margin: 80px auto 0;
+    position: relative;
+    padding: 0 20px;
 }
 
 .tools-section h3 {
@@ -223,18 +228,67 @@ body {
     color: white;
     margin-bottom: 30px;
     text-align: center;
+    width: 100%;
+}
+
+.tools-wrapper {
+    overflow: hidden;
+    position: relative;
+    padding: 0 10%;
 }
 
 .tools-container {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 20px 0;
-    animation: scroll 20s linear infinite;
+    padding: 20px 0 40px 0;
+    animation: scroll 40s linear infinite;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    position: relative;
 }
 
-.tools-container:hover {
-    animation-play-state: paused;
+.tools-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tools-container:active {
+    cursor: grabbing;
+}
+
+.scroll-bar-track {
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.scroll-bar-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    width: 20%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    animation: scrollIndicator 40s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+@keyframes scrollIndicator {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(300%);
+    }
 }
 
 @keyframes scroll {
@@ -254,13 +308,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: grab;
     transition: transform 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.tool-item:active {
-    cursor: grabbing;
+    flex-shrink: 0;
 }
 
 .tool-item:hover {
@@ -308,7 +358,7 @@ body {
 /* Work Section */
 .work-section {
     min-height: 100vh;
-    padding: 100px 0;
+    padding: 0;
     position: relative;
 }
 
@@ -412,7 +462,7 @@ body {
 /* Carousel Controls */
 .carousel-controls {
     position: absolute;
-    bottom: 50px;
+    bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -621,7 +671,7 @@ body {
     }
 
     .carousel-controls {
-        bottom: 30px;
+        bottom: 100px;
     }
 
     .project-details {

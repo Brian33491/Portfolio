@@ -48,6 +48,7 @@ document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
 
 // Tools Container Drag Functionality
 const toolsContainer = document.getElementById('toolsContainer');
+const scrollBarIndicator = document.querySelector('.scroll-bar-indicator');
 let isDragging = false;
 let startX;
 let scrollLeft;
@@ -56,21 +57,40 @@ let scrollLeft;
 const tools = toolsContainer.innerHTML;
 toolsContainer.innerHTML = tools + tools;
 
+// Update scroll bar position based on container scroll
+function updateScrollBar() {
+    if (!toolsContainer || !scrollBarIndicator) return;
+    
+    const scrollPercentage = toolsContainer.scrollLeft / (toolsContainer.scrollWidth - toolsContainer.clientWidth);
+    const maxTranslate = 300; // This matches the 300% in CSS animation
+    scrollBarIndicator.style.transform = `translateX(${scrollPercentage * maxTranslate}%)`;
+}
+
+toolsContainer.addEventListener('scroll', updateScrollBar);
+
 toolsContainer.addEventListener('mousedown', (e) => {
     isDragging = true;
     startX = e.pageX - toolsContainer.offsetLeft;
     scrollLeft = toolsContainer.scrollLeft;
     toolsContainer.style.cursor = 'grabbing';
+    toolsContainer.style.animationPlayState = 'paused';
+    scrollBarIndicator.style.animationPlayState = 'paused';
 });
 
 toolsContainer.addEventListener('mouseleave', () => {
-    isDragging = false;
-    toolsContainer.style.cursor = 'grab';
+    if (isDragging) {
+        isDragging = false;
+        toolsContainer.style.cursor = 'grab';
+        toolsContainer.style.animationPlayState = 'running';
+        scrollBarIndicator.style.animationPlayState = 'running';
+    }
 });
 
 toolsContainer.addEventListener('mouseup', () => {
     isDragging = false;
     toolsContainer.style.cursor = 'grab';
+    toolsContainer.style.animationPlayState = 'running';
+    scrollBarIndicator.style.animationPlayState = 'running';
 });
 
 toolsContainer.addEventListener('mousemove', (e) => {
@@ -81,16 +101,28 @@ toolsContainer.addEventListener('mousemove', (e) => {
     toolsContainer.scrollLeft = scrollLeft - walk;
 });
 
+toolsContainer.addEventListener('mouseenter', () => {
+    toolsContainer.style.animationPlayState = 'paused';
+    scrollBarIndicator.style.animationPlayState = 'paused';
+});
+
 // Touch events for mobile
 toolsContainer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].pageX - toolsContainer.offsetLeft;
     scrollLeft = toolsContainer.scrollLeft;
+    toolsContainer.style.animationPlayState = 'paused';
+    scrollBarIndicator.style.animationPlayState = 'paused';
 });
 
 toolsContainer.addEventListener('touchmove', (e) => {
     const x = e.touches[0].pageX - toolsContainer.offsetLeft;
     const walk = (x - startX) * 2;
     toolsContainer.scrollLeft = scrollLeft - walk;
+});
+
+toolsContainer.addEventListener('touchend', () => {
+    toolsContainer.style.animationPlayState = 'running';
+    scrollBarIndicator.style.animationPlayState = 'running';
 });
 
 // Work Carousel Functionality
