@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - UX/UI Designer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+        <div class="nav-logo">
+            <div class="logo-circle">
+                <img src="https://via.placeholder.com/60" alt="Profile" id="nav-profile-img">
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link active">About</a>
+            <a href="#work" class="nav-link">Work</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="#about" class="mobile-nav-link active">
+            <i class="fas fa-user"></i>
+            <span>About</span>
+        </a>
+        <a href="#work" class="mobile-nav-link">
+            <i class="fas fa-briefcase"></i>
+            <span>Work</span>
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h1 class="name">John Doe</h1>
+                    <h2 class="job-title">UX/UI Designer</h2>
+                    <p class="description">
+                        I'm a passionate designer focused on creating meaningful digital experiences 
+                        that blend aesthetics with functionality. With expertise in user research, 
+                        interface design, and prototyping, I bring ideas to life.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="resume-btn">Resume</button>
+                        <a href="https://www.linkedin.com" target="_blank" class="linkedin-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-image">
+                    <img src="https://via.placeholder.com/400" alt="Profile Picture">
+                </div>
+            </div>
+            
+            <!-- Tools Section -->
+            <div class="tools-section">
+                <h3>Tools I Use</h3>
+                <div class="tools-container" id="toolsContainer">
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=Figma" alt="Figma">
+                    </div>
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=Blender" alt="Blender">
+                    </div>
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=Photoshop" alt="Photoshop">
+                    </div>
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=Illustrator" alt="Illustrator">
+                    </div>
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=XD" alt="Adobe XD">
+                    </div>
+                    <div class="tool-item" draggable="true">
+                        <img src="https://via.placeholder.com/80?text=Sketch" alt="Sketch">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="scroll-indicator">
+                <i class="fas fa-arrow-down"></i>
+                <span>Check Out My Work</span>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="work-section">
+            <div class="work-carousel">
+                <!-- Project 1: School Of Education -->
+                <div class="project-slide active" data-project="school-education">
+                    <div class="project-background" style="background-image: url('https://via.placeholder.com/1920x1080?text=School+Of+Education');">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="project-title">School Of Education</h2>
+                        <p class="project-description">
+                            Redesigning the educational platform to enhance student engagement and streamline 
+                            course management for educators and administrators.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">UX Research</span>
+                            <span class="tag">Figma</span>
+                            <span class="tag">Prototyping</span>
+                            <span class="tag">User Testing</span>
+                        </div>
+                        <button class="learn-more-btn" onclick="navigateToProject('school-education')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Project 2: National Parks -->
+                <div class="project-slide" data-project="national-parks">
+                    <div class="project-background" style="background-image: url('https://via.placeholder.com/1920x1080?text=National+Parks');">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="project-title">National Parks</h2>
+                        <p class="project-description">
+                            Creating an immersive digital experience for park visitors to explore trails, 
+                            wildlife, and plan their adventures with interactive maps.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">UI Design</span>
+                            <span class="tag">Mobile First</span>
+                            <span class="tag">Maps Integration</span>
+                            <span class="tag">Accessibility</span>
+                        </div>
+                        <button class="learn-more-btn" onclick="navigateToProject('national-parks')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Project 3: UVU SCULPT -->
+                <div class="project-slide" data-project="uvu-sculpt">
+                    <div class="project-background" style="background-image: url('https://via.placeholder.com/1920x1080?text=UVU+SCULPT');">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="project-title">UVU SCULPT</h2>
+                        <p class="project-description">
+                            Developing a collaborative platform for students to showcase their 3D modeling 
+                            work and connect with industry professionals.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">3D Integration</span>
+                            <span class="tag">Portfolio</span>
+                            <span class="tag">Community</span>
+                        </div>
+                        <button class="learn-more-btn" onclick="navigateToProject('uvu-sculpt')">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Project 4: Timpanogos Cave -->
+                <div class="project-slide" data-project="timpanogos-cave">
+                    <div class="project-background" style="background-image: url('https://via.placeholder.com/1920x1080?text=Timpanogos+Cave');">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-content">
+                        <h2 class="project-title">Timpanogos Cave</h2>
+                        <p class="project-description">
+                            Designing an educational app that brings the cave experience to life through 
+                            AR features and interactive geological information.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">AR Design</span>
+                            <span class="tag">Education</span>
+                            <span class="tag">Mobile App</span>
+                            <span class="tag">Interactive</span>
+                        </div>
+                        <button class="learn-more-btn" onclick="navigateToProject('timpanogos-cave')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+                <button class="carousel-arrow prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                    <span class="dot" onclick="goToSlide(3)"></span>
+                </div>
+                <button class="carousel-arrow next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Detail Pages (Hidden by default) -->
+    <div id="projectDetails" class="project-details hidden">
+        <button class="back-btn" onclick="backToWork()">
+            <i class="fas fa-arrow-left"></i> Back to Work
+        </button>
+        <div id="projectContent"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
