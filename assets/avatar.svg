@@ -1,0 +1,11 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Avatar placeholder">
+  <defs>
+    <radialGradient id="g" cx="38%" cy="32%" r="70%">
+      <stop offset="0%" stop-color="#6d7888"/>
+      <stop offset="100%" stop-color="#1a1e24"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="80" fill="url(#g)"/>
+  <circle cx="80" cy="66" r="26" fill="#c9d0d8" opacity=".9"/>
+  <ellipse cx="80" cy="128" rx="46" ry="32" fill="#c9d0d8" opacity=".85"/>
+</svg>

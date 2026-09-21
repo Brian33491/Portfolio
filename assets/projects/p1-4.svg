@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice">
+  <rect width="320" height="220" fill="#161e28"/>
+  <ellipse cx='110' cy='120' rx='120' ry='70' fill='#a8bfd2'/><rect x='200' y='20' width='90' height='180' fill='#5c7388' opacity='.9'/>
+</svg>
